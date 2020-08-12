@@ -372,6 +372,7 @@ public class JavaCompile extends AbstractCompile implements HasCompileOptions {
     }
 
     private void configureCompatibilityOptions(DefaultJavaCompileSpec spec) {
+        // FIXME: should work toolchain+source/atrget spec
         if (javaCompiler.isPresent()) {
             final JavaToolchain toolchain = ((DefaultToolchainJavaCompiler) javaCompiler.get()).getJavaToolchain();
             spec.setTargetCompatibility(toolchain.getJavaMajorVersion().getMajorVersion());
