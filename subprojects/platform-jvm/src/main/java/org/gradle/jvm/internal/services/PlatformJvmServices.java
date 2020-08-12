@@ -68,19 +68,22 @@ public class PlatformJvmServices extends AbstractPluginServiceRegistry {
         registration.add(JavaInstallationProbe.class);
     }
 
-
     @Override
     public void registerBuildServices(ServiceRegistration registration) {
         registration.add(DefaultJavaInstallationRegistry.class);
         registration.addProvider(new BuildScopeServices());
+        registration.add(JdkCacheDirectory.class);
         registration.add(SharedJavaInstallationRegistry.class);
+        registerJavaInstallationSuppliers(registration);
+    }
+
+    private void registerJavaInstallationSuppliers(ServiceRegistration registration) {
         registration.add(LocationListInstallationSupplier.class);
         registration.add(EnvironmentVariableListInstallationSupplier.class);
         registration.add(CurrentInstallationSupplier.class);
         registration.add(SdkmanInstallationSupplier.class);
         registration.add(JabbaInstallationSupplier.class);
         registration.add(AutoInstalledInstallationSupplier.class);
-        registration.add(JdkCacheDirectory.class);
     }
 
     @Override
