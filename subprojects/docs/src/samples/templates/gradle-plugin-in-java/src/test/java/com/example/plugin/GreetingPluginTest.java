@@ -14,6 +14,6 @@ public class GreetingPluginTest {
         project.getPlugins().apply("com.example.plugin.greeting");
 
         // Verify the result
-        assertNotNull(project.getTasks().findByName("greet"));
+        assertNotNull(project.getTasks().findByName("greetx"));
     }
 }
